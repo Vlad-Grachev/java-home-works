@@ -49,7 +49,7 @@ public class Book {
             if(i != authors.length - 1)
                 sBook += ",";
         }
-        sBook = sBook + "},price=" + ",qty=" + qty;
+        sBook = sBook + "},price=" + ",qty=" + qty + "]";
         return sBook;
     }
 
