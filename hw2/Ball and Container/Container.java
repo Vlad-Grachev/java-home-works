@@ -38,4 +38,22 @@ public class Container {
         return "Container[(" + x1 + "," + y1 +
                 "),(" + x2 + "," + y2 + ")]";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj == null) return false;
+        if(getClass() != obj.getClass()) return false;
+
+        Container c = (Container) obj;
+        return (getHeight() == c.getHeight()) && (getWidth() == c.getWidth());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + getHeight();
+        result = 31 * result + getWidth();
+        return result;
+    }
 }

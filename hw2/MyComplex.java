@@ -59,16 +59,23 @@ public class MyComplex {
     }
 
     @Override
-    public boolean equals(Object another) {
-        if(this == another) return true;
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj == null) return  false;
+        if (getClass() != obj.getClass()) return  false;
 
-        if(another == null) return  false;
-
-        if (getClass() != another.getClass())
-            return  false;
-
-        MyComplex z = (MyComplex) another;
+        MyComplex z = (MyComplex) obj;
         return equals(z.real, z.imag);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        long r = Double.doubleToLongBits(real);
+        long i = Double.doubleToLongBits(imag);
+        result = 31 * result + (int)(r ^ (r >>> 32));
+        result = 31 * result + (int)(i ^ (i >>> 32));
+        return result;
     }
 
     public double magnitude(){
@@ -126,4 +133,6 @@ public class MyComplex {
     public MyComplex conjugate(){
         return new MyComplex(real, -1.0 * imag);
     }
+
+
 }

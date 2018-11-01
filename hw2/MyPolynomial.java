@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MyPolynomial {
     private double[] coeffs;
 
@@ -54,5 +56,25 @@ public class MyPolynomial {
             for (int j = 0; j < bigger.length; j++)
                 resultCoeffs[i + j] += bigger[j] * smaller[i];
         return new MyPolynomial(resultCoeffs);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj == null || getClass() != obj.getClass()) return false;
+
+        MyPolynomial p = (MyPolynomial) obj;
+        return Arrays.equals(coeffs, p.coeffs);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        long c;
+        for(double coef: coeffs){
+            c = Double.doubleToLongBits(coef);
+            result = 31 * result + (int)(c ^ (c >>> 32));
+        }
+        return result;
     }
 }

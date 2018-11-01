@@ -1,13 +1,13 @@
 public class Employee {
     private int id;
     private String firstName;
-    private String lasName;
+    private String lastName;
     private int salary;
 
-    public Employee(int id, String firstName, String lasName, int salary) {
+    public Employee(int id, String firstName, String lastName, int salary) {
         this.id = id;
         this.firstName = firstName;
-        this.lasName = lasName;
+        this.lastName = lastName;
         this.salary = salary;
     }
 
@@ -19,12 +19,12 @@ public class Employee {
         return firstName;
     }
 
-    public String getLasName() {
-        return lasName;
+    public String getLastName() {
+        return lastName;
     }
 
     public String getName() {
-        return firstName + ' ' + lasName;
+        return firstName + ' ' + lastName;
     }
 
     public int getSalary() {
@@ -48,5 +48,26 @@ public class Employee {
     public String toString() {
         return "Employee[id=" + id + ",name=" + getName() +
                 ",salary=" + salary + "]";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj == null || getClass() != obj.getClass())
+            return false;
+
+        Employee e = (Employee) obj;
+        return id == e.id && firstName.equals(e.firstName) &&
+                lastName.equals(lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + id;
+        result = 31 * result + salary;
+        result = 31 * result + firstName.hashCode();
+        result = 31 * result + lastName.hashCode();
+        return result;
     }
 }

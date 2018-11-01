@@ -1,3 +1,6 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Book {
     private String name;
     private Author[] authors;
@@ -61,5 +64,24 @@ public class Book {
                 sAuthors += ",";
         }
         return sAuthors;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if( obj == null) return false;
+        if(getClass() != obj.getClass()) return false;
+
+        Book book = (Book) obj;
+        return name.equals(book.name) && Arrays.equals(authors, book.authors);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + name.hashCode();
+        for(Author a: authors)
+            result = 31 * result + a.hashCode();
+        return result;
     }
 }

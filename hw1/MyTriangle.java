@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MyTriangle {
     private MyPoint v1, v2, v3;
@@ -24,18 +25,36 @@ public class MyTriangle {
     public double getPerimeter(){
         return v1.distance(v2) + v2.distance(v3) + v3.distance(v1);
     }
-
+    
+    private boolean areClose(double d1, double d2){
+        return Math.abs(d1 - d2) < 0.001;
+    }
+    
     public String getType(){
         String type = "Scalene";
-        if((Double.compare(v1.distance(v2), v2.distance(v3)) == 0) &&
-           (Double.compare(v1.distance(v2), v1.distance(v3)) == 0)) {
+        if(areClose(v1.distance(v2), v2.distance(v3)) &&
+           areClose(v1.distance(v2), v1.distance(v3))) {
             type = "Equilateral";
         } else
-            if((Double.compare(v1.distance(v2), v2.distance(v3)) == 0) ||
-               (Double.compare(v1.distance(v2), v1.distance(v3)) == 0) ||
-               (Double.compare(v1.distance(v3), v2.distance(v3)) == 0)) {
+            if(areClose(v1.distance(v2), v2.distance(v3)) ||
+               areClose(v1.distance(v2), v1.distance(v3)) ||
+               areClose(v1.distance(v3), v2.distance(v3))) {
                 type = "Isosceles";
             }
         return type;
+    }
+
+    /* Стороны треугольника имеют тип double, поэтому при написании
+      equals() нужно было бы сравнивать их с некоторой точностью. Однако
+      в таком случае метод hashCode(), написанный по "рецепту",
+      мог бы возвращать разные значения для вроде бы равных треугольников.
+       Если пользователю потребуется сравнить треугольники, он может
+      вызвать метод getSides() для каждого из них и провести сравнение
+      длин сторон самостоятельно*/
+
+    double[] getSides(){
+        double[] sides = {v1.distance(v2),
+                v2.distance(v3), v3.distance(v1)};
+        return sides;
     }
 }

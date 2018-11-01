@@ -51,4 +51,22 @@ public class MyPoint {
     public double distance(){
         return distance(0, 0);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj == null) return false;
+        if(getClass() != obj.getClass()) return false;
+
+        MyPoint p = (MyPoint) obj;
+        return (x == p.x)&&(y == p.y);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + x;
+        result = 31 * result + y;
+        return result;
+    }
 }

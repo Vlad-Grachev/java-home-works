@@ -38,4 +38,24 @@ public class Rectangle {
     public String toString() {
         return "Rectangle[length=?" + length + " ,width=" + width + "]";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj == null) return false;
+        if(getClass() != obj.getClass()) return false;
+
+        Rectangle rect = (Rectangle) obj;
+        return Float.compare(width, rect.width) == 0  &&
+                Float.compare(length, rect.length) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31 * result + Float.floatToIntBits(width);
+        result = 31 * result + Float.floatToIntBits(length);
+        return result;
+    }
 }
