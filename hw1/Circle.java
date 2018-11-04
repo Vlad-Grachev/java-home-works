@@ -1,3 +1,5 @@
+package hw1;
+
 public class Circle {
     private double radius = 1.0;
     String color = "red";

@@ -1,3 +1,5 @@
+package hw2;
+
 public class Container {
     private int x1, y1, x2, y2;
 

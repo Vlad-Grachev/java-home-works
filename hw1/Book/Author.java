@@ -1,3 +1,5 @@
+package hw1.book;
+
 public class Author {
     private String name;
     private String email;

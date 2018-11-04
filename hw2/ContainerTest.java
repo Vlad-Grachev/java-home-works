@@ -1,3 +1,5 @@
+package hw2;
+
 public class ContainerTest {
     public static void main(String[] args) {
         Container container = new Container(0, 0 , 10, 10);

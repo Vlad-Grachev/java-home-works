@@ -1,3 +1,5 @@
+package hw2;
+
 public class Ball {
     private float x;
     private float y;

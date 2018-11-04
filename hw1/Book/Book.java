@@ -1,3 +1,5 @@
+package hw1.book;
+
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
