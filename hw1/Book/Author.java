@@ -44,8 +44,7 @@ public class Author {
     @Override
     public boolean equals(Object obj) {
         if(this == obj) return true;
-        if(obj == null) return false;
-        if(getClass() != obj.getClass()) return false;
+        if(obj == null || getClass() != obj.getClass()) return false;
 
         Author a = (Author) obj;
         return gender == gender && name.equals(a.name) &&

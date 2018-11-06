@@ -44,8 +44,7 @@ public class Rectangle {
     @Override
     public boolean equals(Object obj) {
         if(this == obj) return true;
-        if(obj == null) return false;
-        if(getClass() != obj.getClass()) return false;
+        if(obj == null || getClass() != obj.getClass()) return false;
 
         Rectangle rect = (Rectangle) obj;
         return Float.compare(width, rect.width) == 0  &&
