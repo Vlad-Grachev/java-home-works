@@ -251,15 +251,17 @@ public class JavaCollectionsTests {
         }
         tMapTime = System.nanoTime() - starTime;
 
-        if(lMapTime < tMapTime)
+        if(hMapTime < tMapTime)
             System.out.println("HashMap is faster in inserting elements");
         else
             System.out.println("TreeMap is faster in inserting elements");
     }
 
     public static void main(String[] args) {
-        //listTest();
-        //setTest();
+        listTest();
+        System.out.println();
+        setTest();
+        System.out.println();
         mapTest();
     }
 }
