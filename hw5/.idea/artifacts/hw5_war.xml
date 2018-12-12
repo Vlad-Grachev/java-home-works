@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="hw5:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/hw5_war</output-path>
+    <root id="archive" name="hw5_war.war">
+      <element id="artifact" artifact-name="hw5:war exploded" />
+      <element id="library" level="project" name="org.simplejavamail:simple-java-mail:5.1.0" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="org.simplejavamail:simple-java-mail:5.1.0" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
