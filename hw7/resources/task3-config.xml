@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="oldPC" class="task3.OldDesktop" scope="prototype">
+        <property name="cpu" value="AMD FX-8370"/>
+        <property name="memory" value="8"/>
+        <property name="gpu" value="3dfx Vodoo3 3000"/>
+    </bean>
+
+    <bean id="newPC" class="task3.NewDesktop" scope="prototype" parent="oldPC">
+        <property name="gpu" value="Nvidia TITAN RTX"/>
+        <property name="ssdVolume" value="128"/>
+    </bean>
+
+</beans>

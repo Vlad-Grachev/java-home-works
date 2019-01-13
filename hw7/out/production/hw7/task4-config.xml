@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="concretePC" class="task3.NewDesktop" scope="prototype">
+        <property name="cpu" value="#{simpleConfig.cpu}"/>
+        <property name="memory" value="#{simpleConfig.memory}"/>
+        <property name="gpu" value="#{simpleConfig.gpu}"/>
+        <property name="ssdVolume" value="#{simpleConfig.ssdVolume}"/>
+    </bean>
+
+    <bean id="simpleConfig" class="task4.SimpleConfig" scope="prototype"/>
+
+</beans>

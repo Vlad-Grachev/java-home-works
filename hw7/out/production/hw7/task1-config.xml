@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="officePC" class="task1.ci.Desktop" scope="prototype">
+        <constructor-arg ref="ryzen"/>
+        <constructor-arg value="4"/>
+        <constructor-arg value="800.0"/>
+    </bean>
+
+    <bean id="gamingPC" class="task1.ci.Desktop" scope="prototype">
+        <constructor-arg ref="corei7"/>
+        <constructor-arg value="16"/>
+        <constructor-arg value="1500.0"/>
+    </bean>
+
+    <bean id="ryzen" class="task1.ci.AmdProcessor" scope="prototype">
+        <constructor-arg value="Ryzen 3 2200G"/>
+        <constructor-arg value="3.5"/>
+    </bean>
+
+    <bean id="corei7" class="task1.ci.IntelProcessor" scope="prototype">
+        <constructor-arg value="Core i7-9700K"/>
+        <constructor-arg value="3.7"/>
+    </bean>
+
+    <bean id="cheapPC" class="task1.si.Desktop" scope="prototype">
+        <property name="processor" ref="amd"/>
+        <property name="memory" value="4"/>
+        <property name="price" value="800.0"/>
+    </bean>
+
+    <bean id="expensivePC" class="task1.si.Desktop" scope="prototype">
+        <property name="processor" ref="intel"/>
+        <property name="memory" value="16"/>
+        <property name="price" value="1500.0"/>
+    </bean>
+
+    <bean id="amd" class="task1.si.AmdProcessor" scope="prototype">
+        <property name= "model"  value="Ryzen 3 2200G"/>
+        <property name="frequency" value="3.5"/>
+    </bean>
+
+    <bean id="intel" class="task1.si.IntelProcessor" scope="prototype">
+        <property name="model" value="Core i7-9700K"/>
+        <property name="frequency" value="3.7"/>
+    </bean>
+
+</beans>

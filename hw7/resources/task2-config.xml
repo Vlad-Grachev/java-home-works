@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="ciListCluster" class="task2.ci.ListCluster" scope="prototype">
+        <constructor-arg>
+            <list>
+                <ref bean="ciAmd1"/>
+                <ref bean="ciIntel1"/>
+                <ref bean="ciIntel2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="ciSetCluster" class="task2.ci.SetCluster" scope="prototype">
+        <constructor-arg>
+            <set>
+                <ref bean="ciAmd1"/>
+                <ref bean="ciIntel1"/>
+                <ref bean="ciIntel2"/>
+            </set>
+        </constructor-arg>
+    </bean>
+
+    <bean id="ciMapCluster" class="task2.ci.MapCluster" scope="prototype">
+        <constructor-arg>
+            <map>
+                <entry key="0" value-ref="ciAmd1"/>
+                <entry key="1" value-ref="ciIntel1"/>
+                <entry key="2" value-ref="ciIntel2"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="ciAmd1" class="task1.ci.AmdProcessor" scope="prototype">
+        <constructor-arg value="Ryzen 3 2200G"/>
+        <constructor-arg value="3.5"/>
+    </bean>
+
+    <bean id="ciIntel1" class="task1.ci.IntelProcessor" scope="prototype">
+        <constructor-arg value="Core i7-9700K"/>
+        <constructor-arg value="3.7"/>
+    </bean>
+
+    <bean id="ciIntel2" class="task1.ci.IntelProcessor" scope="prototype">
+        <constructor-arg value="Core i5-3330"/>
+        <constructor-arg value="3.0"/>
+    </bean>
+
+    <bean id="siListCluster" class="task2.si.ListCluster" scope="prototype">
+        <property name="processors">
+            <list>
+                <ref bean="siAmd1"/>
+                <ref bean="siAmd2"/>
+                <ref bean="siIntel1"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="siSetCluster" class="task2.si.SetCluster" scope="prototype">
+        <property name="processors">
+            <set>
+                <ref bean="siAmd1"/>
+                <ref bean="siAmd2"/>
+                <ref bean="siIntel1"/>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="siMapCluster" class="task2.si.MapCluster" scope="prototype">
+        <property name="processors">
+            <map>
+                <entry key="0" value-ref="siAmd1"/>
+                <entry key="1" value-ref="siAmd2"/>
+                <entry key="2" value-ref="siIntel1"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="siAmd1" class="task1.si.AmdProcessor" scope="prototype">
+        <property name= "model"  value="Ryzen 3 2200G"/>
+        <property name="frequency" value="3.5"/>
+    </bean>
+
+    <bean id="siAmd2" class="task1.si.AmdProcessor" scope="prototype">
+        <property name= "model"  value="Ryzen 5 2600X"/>
+        <property name="frequency" value="3.6"/>
+    </bean>
+
+    <bean id="siIntel1" class="task1.si.IntelProcessor" scope="prototype">
+        <property name="model" value="Core i7-9700K"/>
+        <property name="frequency" value="3.7"/>
+    </bean>
+
+</beans>
